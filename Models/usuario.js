@@ -12,7 +12,7 @@ const UsuarioSchema = Schema ({
     },
     password: {
         type: String,
-        rquire: true
+        require: true
     }
 },{
     toJSON:{
