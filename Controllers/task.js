@@ -18,3 +18,20 @@ const crearTask = async (req, res = express.request) => {
         })
     }
 }
+
+const listarTask = async(req, res = express.request) => {
+    const tasks = await Task.find().populate('user', 'name');
+    try{
+        res.status(200).json({
+            ok: true,
+            task,
+        })
+    } catch(error){
+        console.log( error )
+        res.status(500).json({
+            ok: false,
+            msg: 'Internal Error',
+        })
+    }
+}
+
